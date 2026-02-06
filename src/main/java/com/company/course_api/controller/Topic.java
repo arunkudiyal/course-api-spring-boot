@@ -3,14 +3,13 @@ package com.company.course_api.controller;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "course-api")
+@Document(collection = "Topics")
 public class Topic {
-    @Id()
-    private String _id;
     @Id
     private String id;
     private String name;
     private String desc;
+
     public Topic(String id, String name, String desc) {
         this.id = id;
         this.name = name;
