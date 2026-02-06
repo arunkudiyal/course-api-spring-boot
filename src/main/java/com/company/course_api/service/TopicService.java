@@ -27,7 +27,7 @@ public class TopicService {
         return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
     }
 
-    public void saveTopic(Topic topic) {
+    public void save(Topic topic) {
         topics.add(topic);
     }
 }

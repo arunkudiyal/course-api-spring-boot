@@ -1,6 +1,13 @@
 package com.company.course_api.controller;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "course-api")
 public class Topic {
+    @Id()
+    private String _id;
+    @Id
     private String id;
     private String name;
     private String desc;
