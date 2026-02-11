@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 public class TopicController {
 
     @Autowired
     private TopicService topicService;
+    // private TopicService topicService = new TopicService();
 
     // localhost:8080/
     @RequestMapping(value = "/")
@@ -35,5 +36,14 @@ public class TopicController {
         topicService.save(topic);
     }
 
+    @RequestMapping(value = "/topics/{id}", method = RequestMethod.PUT)
+    public Topic setTopicById(@PathVariable String id, @RequestBody Topic topic) {
+        return topicService.setTopicById(id, topic);
+    }
+
+    @RequestMapping(value = "/topics/{id}", method = RequestMethod.DELETE)
+    public void deleteTopicById(@PathVariable String id) {
+        topicService.deleteTopicById(id);
+    }
 }
     

@@ -19,12 +19,22 @@ public class TopicService {
     }
 
     public Topic getTopicById(String id) {
-        Optional<Topic> foundTopic = topicRepository.findById(id);
-        if(foundTopic.isPresent()) return foundTopic.get();
+        Optional<Topic> myTopic = topicRepository.findById(id);
+        if( myTopic.isPresent() ) return myTopic.get();
         else return new Topic("N/A", "N/A", "N/A");
      }
 
     public void save(Topic topic) {
         topicRepository.save(topic);
+    }
+
+    public Topic setTopicById(String id, Topic topic) {
+        topicRepository.deleteById(id);
+        topicRepository.save(topic);
+        return topic;
+    }
+
+    public void deleteTopicById(String id) {
+        topicRepository.deleteById(id);
     }
 }
